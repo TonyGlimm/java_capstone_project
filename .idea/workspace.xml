@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0bf97f8-99ef-4ed7-96ad-5c1e996a03cd" name="Changes" comment="Project setup 3 sonarcloud and maven workflow">
+    <list default="true" id="a0bf97f8-99ef-4ed7-96ad-5c1e996a03cd" name="Changes" comment="Project setup 5 sonarcloud fix">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/sonar-frontend.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sonar-project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/maven.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +69,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1678876222859</updated>
-      <workItem from="1678876224288" duration="1187000" />
+      <workItem from="1678876224288" duration="1924000" />
     </task>
     <task id="LOCAL-00001" summary="Project setup">
       <created>1678876684473</created>
@@ -89,7 +92,28 @@
       <option name="project" value="LOCAL" />
       <updated>1678877109115</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Project setup 3 sonarcloud and maven workflow fix">
+      <created>1678877592499</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678877592499</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Project setup 4 sonarcloud fix">
+      <created>1678877711138</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678877711138</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Project setup 5 sonarcloud fix">
+      <created>1678877840407</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678877840407</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,6 +137,9 @@
     <MESSAGE value="Project setup" />
     <MESSAGE value="Project setup 2" />
     <MESSAGE value="Project setup 3 sonarcloud and maven workflow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project setup 3 sonarcloud and maven workflow" />
+    <MESSAGE value="Project setup 3 sonarcloud and maven workflow fix" />
+    <MESSAGE value="Project setup 4 sonarcloud fix" />
+    <MESSAGE value="Project setup 5 sonarcloud fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project setup 5 sonarcloud fix" />
   </component>
 </project>
