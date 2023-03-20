@@ -11,10 +11,10 @@ import java.util.Objects;
 
 public class MovieService {
     public static final String API_KEY = System.getenv("TMDB_API_KEY");
-    String baseurl = "https://api.themoviedb.org/3/";
-    private WebClient webClient = WebClient.create(baseurl);
+    String baseUrl = "https://api.themoviedb.org/3/";
 
     public List<Movie> getPopularMovies() {
+        WebClient webClient = WebClient.create(baseUrl);
         MovieRepository movieRepository = Objects.requireNonNull(webClient.get()
                 .uri("movie/popular?api_key=" + API_KEY + "&language=en-US&include_adult=false&page=1")
                 .retrieve()
