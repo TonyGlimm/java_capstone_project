@@ -10,17 +10,17 @@ import java.util.Objects;
 @Service
 
 public class MovieService {
-    private WebClient webClient = WebClient.create("https://api.themoviedb.org/3/movie/popular?api_key=!!!!KEY_HERE!!!!!!&language=en-US&page=1");
+    public static final String API_KEY = System.getenv("TMDB_API_KEY");
 
+    private WebClient webClient = WebClient.create("https://api.themoviedb.org/3/movie/popular?api_key=" + API_KEY + "&language=en-US&include_adult=false&page=1");
     public List<Movie> getPopularMovies() {
-
-        MovieApiResponse movieApiResponse = Objects.requireNonNull(webClient.get()
+        MovieRepository movieRepository = Objects.requireNonNull(webClient.get()
                 .uri("")
                 .retrieve()
-                .bodyToMono(MovieApiResponse.class)
+                .bodyToMono(MovieRepository.class)
                 .block());
 
-        return movieApiResponse.results();
+        return movieRepository.getResults();
     }
 }
 
