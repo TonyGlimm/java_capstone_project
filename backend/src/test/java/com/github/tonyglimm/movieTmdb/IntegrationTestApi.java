@@ -54,7 +54,7 @@ public class IntegrationTestApi {
                         }
                         """));
 
-        mockMvc.perform(get("/movies"))
+        mockMvc.perform(get("/api/movies/popular"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id").value(1))
                 .andExpect(jsonPath("$[0].original_title").value("Tony Glimm"))
