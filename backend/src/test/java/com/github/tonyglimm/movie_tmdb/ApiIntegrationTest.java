@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class ApiIntegrationTest {
+class ApiIntegrationTest {
 
     @Autowired
     MockMvc mockMvc;
@@ -36,7 +36,7 @@ public class ApiIntegrationTest {
         registry.add("tmdbApi.url", () -> mockWebServer.url("/").toString());
     }
     @Test
-    public void apiIntegrationTest() throws Exception {
+    void apiIntegrationTest() throws Exception {
 
         mockWebServer.enqueue(new MockResponse()
                 .setHeader("Content-Type", "application/json")
