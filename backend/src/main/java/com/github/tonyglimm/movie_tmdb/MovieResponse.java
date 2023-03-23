@@ -1,4 +1,4 @@
-package com.github.tonyglimm.movieTmdb;
+package com.github.tonyglimm.movie_tmdb;
 
 import java.util.List;
 

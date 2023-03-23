@@ -1,4 +1,4 @@
-package com.github.tonyglimm.movieTmdb;
+package com.github.tonyglimm.movie_tmdb;
 
 import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
