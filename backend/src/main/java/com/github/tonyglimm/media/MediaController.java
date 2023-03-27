@@ -17,4 +17,8 @@ public class MediaController {
     public List<Media> getPopularMovies() {
         return mediaService.getPopularMovies();
     }
+    @GetMapping("/trending")
+    public List<Media> getTrending() {
+        return mediaService.getTrending();
+    }
 }
