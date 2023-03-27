@@ -2,12 +2,9 @@ import axios from 'axios'
 import {useEffect, useState} from "react";
 import {Movie} from "../../models/Movie";
 
-const apiUrl = '/api/movies/popular'
-
-function useMoviesApi() {
+function useMoviesApi(apiUrl: string) {
     const [movies, setMovies] = useState<Movie[]>([])
     const [loading, setLoading] = useState<boolean>(true)
-
 
     useEffect(() => {
         fetchMovies()
@@ -27,7 +24,6 @@ function useMoviesApi() {
             .finally(() => setLoading(false))
     }
 
-    return {loading, movies}
+    return { movies}
 }
-
 export default useMoviesApi

@@ -18,7 +18,9 @@ function MovieCard(props: MovieCardProps) {
                 <img className="poster" title={props.movie.original_title} src={poster_path}
                      alt={props.movie.original_title}/>
                 <h2 className="title">{props.movie.original_title}</h2>
-
+                <span  className="subTitle">{"Movie"}
+                <span className='subTitle'>{props.movie.release_date}</span>
+            </span>
             </div>
 
         )

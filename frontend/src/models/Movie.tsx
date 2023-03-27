@@ -1,4 +1,3 @@
-
 export type Movie = {
     id: number;
     original_title: string;
@@ -8,4 +7,5 @@ export type Movie = {
     vote_average: number;
     vote_count: number;
     overview: string;
+    media_type: string;
 }
