@@ -4,14 +4,13 @@ import {Movie} from "../../models/Movie";
 
 function useMoviesApi(apiUrl: string) {
     const [movies, setMovies] = useState<Movie[]>([])
-    const [loading, setLoading] = useState<boolean>(true)
+    const [setLoading] = useState<boolean>(true)
 
     useEffect(() => {
         fetchMovies()
     }, [])
 
     function fetchMovies() {
-        setLoading(true)
         axios
             .get(apiUrl)
             .then((response) => response.data)
@@ -21,7 +20,6 @@ function useMoviesApi(apiUrl: string) {
             .catch((error) => {
                 console.error(error)
             })
-            .finally(() => setLoading(false))
     }
 
     return { movies}
