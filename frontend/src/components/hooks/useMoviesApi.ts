@@ -4,7 +4,6 @@ import {Movie} from "../../models/Movie";
 
 function useMoviesApi(apiUrl: string) {
     const [movies, setMovies] = useState<Movie[]>([])
-    const [setLoading] = useState<boolean>(true)
 
     useEffect(() => {
         fetchMovies()
