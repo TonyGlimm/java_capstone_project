@@ -1,9 +1,6 @@
 .gallery--body {
     display: flex;
-    /*
-    flex-direction: column;
-    */
+
     flex-wrap: wrap;
-    min-height: fit-content;
-    max-height: 100%;
-}
+
+justify-content: space-around}

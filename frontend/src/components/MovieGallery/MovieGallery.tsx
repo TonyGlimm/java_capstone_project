@@ -11,7 +11,6 @@ type MovieGalleryProps = {
 function MovieGallery(props: MovieGalleryProps) {
     return (
         <>
-            <h1 className="gallery--title">Movie Gallery</h1>
             <div className="gallery--body">
                 {props.movies.map((movie) => (
                     <MovieCard key={movie.id} movie={movie}/>

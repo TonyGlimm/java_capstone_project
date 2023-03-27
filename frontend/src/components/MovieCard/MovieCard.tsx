@@ -5,26 +5,22 @@ import {Movie} from "../../models/Movie";
 
 type MovieCardProps = {
     movie: Movie
-
-
 }
-
-
 
 function MovieCard(props: MovieCardProps) {
 
-    let poster_path = `https://image.tmdb.org/t/p/w342${props.movie.poster_path}`
+    let poster_path = `https://www.themoviedb.org/t/p/w220_and_h330_face${props.movie.poster_path}`
     if (props.movie.poster_path == null) {
         poster_path = "https://i.imgur.com/wjVuAGb.png"
     }
         return (
-            <div className="gallery__card" id={props.movie.id.toString()}>
-                <h2 className="gallery__card--title">{props.movie.original_title}</h2>
-
-                <img className="glimm-image" title={props.movie.original_title} src={poster_path}
+            <div className="media">
+                <img className="poster" title={props.movie.original_title} src={poster_path}
                      alt={props.movie.original_title}/>
+                <h2 className="title">{props.movie.original_title}</h2>
 
             </div>
+
         )
 
 }
