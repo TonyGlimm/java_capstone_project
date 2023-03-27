@@ -22,7 +22,8 @@ function App() {
 */}
     </main>
                 <Routes>
-                    <Route path={"/"} element={<MovieGallery movies={movies}/>}/>
+                    <Route path={"/"} />
+                    <Route path={"/movies"} element={<MovieGallery movies={movies}/>}/>
 
                 </Routes>
             <SimpleBottomNavigation/>

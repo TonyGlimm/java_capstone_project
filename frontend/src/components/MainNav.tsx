@@ -24,7 +24,7 @@ export default function SimpleBottomNavigation() {
     return (
         <Box sx={{ width: 500 }} >
             <BottomNavigation
-                style={{backgroundColor: "#2d313a",bottom: 0, position: "fixed", width: "100%"}}
+                style={{backgroundColor: "#2d313a",bottom: 0, position: "fixed", width: "100%", zIndex: 100}}
                 showLabels
                 value={value}
                 onChange={(event, newValue) => {
@@ -33,12 +33,12 @@ export default function SimpleBottomNavigation() {
             >
                 <BottomNavigationAction
                     style={{color: "white"}}
-                    label="Popular Movies"
+                    label="Trending Today"
                     icon={<WhatshotIcon />}
                 />
                 <BottomNavigationAction
                     style={{color: "white"}}
-                    label="Dummy Movies"
+                    label="Popular Movies"
                     icon={<MovieIcon />}
                 />
                 <BottomNavigationAction
