@@ -36,7 +36,7 @@ class ApiIntegrationTest {
         registry.add("tmdbApi.url", () -> mockWebServer.url("/").toString());
     }
     @Test
-    void apiIntegrationTest() throws Exception {
+    void apiIntegrationTestMovies() throws Exception {
 
         mockWebServer.enqueue(new MockResponse()
                 .setHeader("Content-Type", "application/json")
@@ -66,7 +66,41 @@ class ApiIntegrationTest {
                 .andExpect(jsonPath("$[0].overview").value("this movie has a nice description"))
 
         ;
+    }    @Test
+    void apiIntegrationTestTrending() throws Exception {
+
+        mockWebServer.enqueue(new MockResponse()
+                .setHeader("Content-Type", "application/json")
+                .setBody("""
+                        {
+                            "results": [{
+                            "id":1,
+                            "original_title":"Tony Glimm",
+                            "genre_ids":[1,2,3],
+                            "poster_path":"Poster",
+                            "release_date":"yesterday",
+                            "vote_average":2.0,
+                            "vote_count":222222222,
+                            "overview":"this movie has a nice description"}]
+                        }
+                        """));
+
+        mockMvc.perform(get("/api/trending"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(1))
+                .andExpect(jsonPath("$[0].original_title").value("Tony Glimm"))
+                .andExpect(jsonPath("$[0].poster_path").value("Poster"))
+                .andExpect(jsonPath("$[0].genre_ids",containsInAnyOrder(1,2,3)))
+                .andExpect(jsonPath("$[0].release_date").value("yesterday"))
+                .andExpect(jsonPath("$[0].vote_average").value(2.0))
+                .andExpect(jsonPath("$[0].vote_count").value(222222222))
+                .andExpect(jsonPath("$[0].overview").value("this movie has a nice description"))
+
+        ;
     }
+
+
+
     @AfterAll
     static void afterAll() throws IOException {
         mockWebServer.shutdown();
