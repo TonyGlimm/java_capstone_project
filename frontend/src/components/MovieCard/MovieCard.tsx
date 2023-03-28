@@ -2,6 +2,7 @@ import React from "react";
 
 import './MovieCard.css'
 import {Movie} from "../../models/Movie";
+import {Badge} from "@mui/material";
 
 type MovieCardProps = {
     movie: Movie
@@ -15,6 +16,7 @@ function MovieCard(props: MovieCardProps) {
     }
         return (
             <div className="media">
+                <Badge badgeContent={props.movie.voteAverage} color="primary"/>
                 <img className="poster" title={props.movie.originalTitle} src={poster_path}
                      alt={props.movie.originalTitle}/>
                 <h2 className="title">{props.movie.originalTitle}</h2>
