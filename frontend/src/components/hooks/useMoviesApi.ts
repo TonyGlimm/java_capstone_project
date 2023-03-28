@@ -7,7 +7,7 @@ function useMoviesApi(apiUrl: string) {
 
     useEffect(() => {
         fetchMovies()
-    }, [])
+    }, [fetchMovies])
     function fetchMovies() {
         axios
             .get(apiUrl)
