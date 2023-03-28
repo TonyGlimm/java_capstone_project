@@ -44,27 +44,25 @@ class ApiIntegrationTest {
                         {
                             "results": [{
                             "id":1,
-                            "original_title":"Tony Glimm",
-                            "genre_ids":[1,2,3],
-                            "poster_path":"Poster",
-                            "release_date":"yesterday",
-                            "vote_average":2.0,
-                            "vote_count":222222222,
+                            "originalTitle":"Tony Glimm",
+                            "genreIds":[1,2,3],
+                            "posterPath":"Poster",
+                            "releaseDate":"yesterday",
+                            "voteAverage":2.0,
+                            "voteCount":222222222,
                             "overview":"this movie has a nice description"}]
                         }
                         """));
-
         mockMvc.perform(get("/api/movies/popular"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id").value(1))
-                .andExpect(jsonPath("$[0].original_title").value("Tony Glimm"))
-                .andExpect(jsonPath("$[0].poster_path").value("Poster"))
-                .andExpect(jsonPath("$[0].genre_ids",containsInAnyOrder(1,2,3)))
-                .andExpect(jsonPath("$[0].release_date").value("yesterday"))
-                .andExpect(jsonPath("$[0].vote_average").value(2.0))
-                .andExpect(jsonPath("$[0].vote_count").value(222222222))
+                .andExpect(jsonPath("$[0].originalTitle").value("Tony Glimm"))
+                .andExpect(jsonPath("$[0].posterPath").value("Poster"))
+                .andExpect(jsonPath("$[0].genreIds",containsInAnyOrder(1,2,3)))
+                .andExpect(jsonPath("$[0].releaseDate").value("yesterday"))
+                .andExpect(jsonPath("$[0].voteAverage").value(2.0))
+                .andExpect(jsonPath("$[0].voteCount").value(222222222))
                 .andExpect(jsonPath("$[0].overview").value("this movie has a nice description"))
-
         ;
     }    @Test
     void apiIntegrationTestTrending() throws Exception {
@@ -75,12 +73,12 @@ class ApiIntegrationTest {
                         {
                             "results": [{
                             "id":1,
-                            "original_title":"Tony Glimm",
-                            "genre_ids":[1,2,3],
-                            "poster_path":"Poster",
-                            "release_date":"yesterday",
-                            "vote_average":2.0,
-                            "vote_count":222222222,
+                            "originalTitle":"Tony Glimm",
+                            "genreIds":[1,2,3],
+                            "posterPath":"Poster",
+                            "releaseDate":"yesterday",
+                            "voteAverage":2.0,
+                            "voteCount":222222222,
                             "overview":"this movie has a nice description"}]
                         }
                         """));
@@ -88,19 +86,16 @@ class ApiIntegrationTest {
         mockMvc.perform(get("/api/trending"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id").value(1))
-                .andExpect(jsonPath("$[0].original_title").value("Tony Glimm"))
-                .andExpect(jsonPath("$[0].poster_path").value("Poster"))
-                .andExpect(jsonPath("$[0].genre_ids",containsInAnyOrder(1,2,3)))
-                .andExpect(jsonPath("$[0].release_date").value("yesterday"))
-                .andExpect(jsonPath("$[0].vote_average").value(2.0))
-                .andExpect(jsonPath("$[0].vote_count").value(222222222))
+                .andExpect(jsonPath("$[0].originalTitle").value("Tony Glimm"))
+                .andExpect(jsonPath("$[0].posterPath").value("Poster"))
+                .andExpect(jsonPath("$[0].genreIds",containsInAnyOrder(1,2,3)))
+                .andExpect(jsonPath("$[0].releaseDate").value("yesterday"))
+                .andExpect(jsonPath("$[0].voteAverage").value(2.0))
+                .andExpect(jsonPath("$[0].voteCount").value(222222222))
                 .andExpect(jsonPath("$[0].overview").value("this movie has a nice description"))
 
         ;
     }
-
-
-
     @AfterAll
     static void afterAll() throws IOException {
         mockWebServer.shutdown();
