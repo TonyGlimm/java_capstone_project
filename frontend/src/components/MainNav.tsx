@@ -8,8 +8,6 @@ import TvIcon from '@mui/icons-material/Tv';
 import SearchIcon from '@mui/icons-material/Search';
 import {useNavigate} from "react-router-dom";
 
-
-
 export default function SimpleBottomNavigation() {
     const [value, setValue] = React.useState(0);
     const navigate = useNavigate();
@@ -19,7 +17,7 @@ export default function SimpleBottomNavigation() {
         else if(value === 1) {navigate("/movies"); }
         else if(value === 2) {navigate("/tvshows"); }
         else if(value === 3) {navigate("/search"); }
-    }, [value])
+    }, [value, navigate])
 
     return (
         <Box sx={{ width: 500 }} >
