@@ -1,4 +1,4 @@
-package com.github.tonyglimm.movie_tmdb;
+package com.github.tonyglimm.media;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,11 +10,15 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
-public class MovieController {
-    private final MovieService movieService;
+public class MediaController {
+    private final MediaService mediaService;
 
     @GetMapping("/movies/popular")
-    public List<Movie> getPopularMovies() {
-        return movieService.getPopularMovies();
+    public List<Media> getPopularMovies() {
+        return mediaService.getPopularMovies();
+    }
+    @GetMapping("/trending")
+    public List<Media> getTrending() {
+        return mediaService.getTrending();
     }
 }
