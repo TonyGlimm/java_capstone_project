@@ -16,7 +16,7 @@ function App() {
 
     useEffect(() => {
         setShowGallery(true);
-    }, [page]);
+    }, []);
 
   return (
       <BrowserRouter>

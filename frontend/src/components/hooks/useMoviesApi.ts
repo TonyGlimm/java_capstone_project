@@ -7,7 +7,7 @@ function useMoviesApi(apiUrl: string, page: number) {
 
     useEffect(() => {
         fetchMovies()
-    } )
+    } , [page])
 
     function fetchMovies() {
         axios
