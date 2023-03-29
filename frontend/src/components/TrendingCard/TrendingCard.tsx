@@ -1,6 +1,5 @@
 import React from "react";
-
-import './TrendingCard.css';
+import "../MovieCard/MovieCard.css";
 
 import {Movie} from "../../models/Movie";
 import {Badge} from "@mui/material";
