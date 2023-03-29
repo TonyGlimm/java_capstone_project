@@ -1,9 +1,7 @@
 package com.github.tonyglimm.media;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,12 +11,12 @@ import java.util.List;
 public class MediaController {
     private final MediaService mediaService;
 
-    @GetMapping("/movies/popular")
-    public List<Media> getPopularMovies() {
-        return mediaService.getPopularMovies();
+    @GetMapping("/movies/popular/{pageValue}")
+    public List<Media> getPopularMovies(@PathVariable("pageValue") int pageValue) {
+        return mediaService.getPopularMovies(pageValue);
     }
-    @GetMapping("/trending")
-    public List<Media> getTrending() {
-        return mediaService.getTrending();
+    @GetMapping("/trending/{pageValue}")
+    public List<Media> getTrending(@PathVariable("pageValue") int pageValue) {
+        return mediaService.getTrending(pageValue);
     }
 }

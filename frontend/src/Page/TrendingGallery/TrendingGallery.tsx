@@ -1,13 +1,17 @@
-import React from "react";
+import React, {Dispatch, SetStateAction} from "react";
 import './TrendingGallery.css';
 import { Movie } from "../../models/Movie";
 import TrendingCard from "../../components/TrendingCard/TrendingCard";
+import CustomPagination from "../../components/Pagination/CustomPagination";
 
-type MovieGalleryProps = {
-    movies: Movie[]
+type TrendingGalleryProps = {
+    movies: Movie[],
+    page: number,
+    setPage: Dispatch<SetStateAction<number>>
+
+
 }
-
-function MovieGallery(props: MovieGalleryProps) {
+function TrendingGallery(props: TrendingGalleryProps) {
     return (
         <>
             <div className="gallery--body">
@@ -15,7 +19,9 @@ function MovieGallery(props: MovieGalleryProps) {
                     <TrendingCard key={movie.id} movie={movie}/>
                 ))}
             </div>
+            <CustomPagination setPage={props.setPage} numberOfPages={50}/>
         </>
+
     )
 }
-export default MovieGallery
+export default TrendingGallery

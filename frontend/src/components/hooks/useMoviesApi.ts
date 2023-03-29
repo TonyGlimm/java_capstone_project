@@ -2,16 +2,16 @@ import axios from 'axios'
 import {useEffect, useState} from "react";
 import {Movie} from "../../models/Movie";
 
-function useMoviesApi(apiUrl: string) {
+function useMoviesApi(apiUrl: string, page: number) {
     const [movies, setMovies] = useState<Movie[]>([])
 
     useEffect(() => {
         fetchMovies()
-    } )
+    } , [page])
 
     function fetchMovies() {
         axios
-            .get(apiUrl)
+            .get(apiUrl+page)
             .then((response) => response.data)
             .then((incomingMovies) => {
                 setMovies(incomingMovies)

@@ -53,7 +53,7 @@ class ApiIntegrationTest {
                             "overview":"this movie has a nice description"}]
                         }
                         """));
-        mockMvc.perform(get("/api/movies/popular"))
+        mockMvc.perform(get("/api/movies/popular/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id").value(1))
                 .andExpect(jsonPath("$[0].originalTitle").value("Tony Glimm"))
@@ -83,7 +83,7 @@ class ApiIntegrationTest {
                         }
                         """));
 
-        mockMvc.perform(get("/api/trending"))
+        mockMvc.perform(get("/api/trending/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id").value(1))
                 .andExpect(jsonPath("$[0].originalTitle").value("Tony Glimm"))

@@ -19,18 +19,17 @@ public class MediaService {
         this.webClient = WebClient.create(url);
     }
 
-    public List<Media> getPopularMovies() {
+    public List<Media> getPopularMovies(int pageValue) {
         return Objects.requireNonNull(webClient.get()
-                .uri("/movie/popular?api_key=" + API_KEY + "&language=en-US&include_adult=false&page=1")
+                .uri("/movie/popular?api_key=" + API_KEY + "&language=en-US&include_adult=false&page="+pageValue)
                 .retrieve()
                 .bodyToMono(MediaResponse.class)
                 .block()).results();
     }
 
-
-    public List<Media> getTrending() {
+    public List<Media> getTrending(int pageValue) {
         return Objects.requireNonNull(webClient.get()
-                .uri("/trending/all/day?api_key=" + API_KEY)
+                .uri("/trending/all/day?api_key=" + API_KEY + "&language=en-US&include_adult=false&page="+pageValue)
                 .retrieve().bodyToMono(MediaResponse.class)
                 .block()).results();
     }

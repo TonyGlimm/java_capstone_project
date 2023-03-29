@@ -15,8 +15,8 @@ export default function SimpleBottomNavigation() {
     useEffect(() => {
         if(value === 0) {navigate("/"); }
         else if(value === 1) {navigate("/movies"); }
-        else if(value === 2) {navigate("/tvshows"); }
-        else if(value === 3) {navigate("/search"); }
+/*        else if(value === 2) {navigate("/tvshows"); }
+        else if(value === 3) {navigate("/search"); }*/
     }, [value, navigate])
 
     return (
@@ -39,13 +39,13 @@ export default function SimpleBottomNavigation() {
                     label="Popular Movies"
                     icon={<MovieIcon />}
                 />
-                <BottomNavigationAction
+{/*                <BottomNavigationAction
                     style={{color: "white"}}
                     label="Dummy TV-Shows" icon={<TvIcon />} />
                 <BottomNavigationAction
                     style={{color: "white"}}
                     label="Dummy Search"
-                    icon={<SearchIcon />} />
+                    icon={<SearchIcon />} />*/}
             </BottomNavigation>
         </Box>
     );

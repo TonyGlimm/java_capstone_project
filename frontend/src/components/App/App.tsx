@@ -9,9 +9,10 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import TrendingGallery from "../../Page/TrendingGallery/TrendingGallery";
 
 function App() {
+    const [page, setPage] = useState(1);
     const [showGallery, setShowGallery] = useState(false);
-  const {movies} = useMoviesApi("/api/movies/popular");
-    const {movies: movies2} = useMoviesApi("/api/trending");
+    const {movies} = useMoviesApi("/api/movies/popular/",page);
+    const {movies: trendingMedia} = useMoviesApi("/api/trending/", page);
 
     useEffect(() => {
         setShowGallery(true);
@@ -21,15 +22,14 @@ function App() {
       <BrowserRouter>
         <Header/>
         <div className="app">
-      <main className={"main"}>
-
-    </main>
+            <main className={"main"}>
                 <Routes>
-                    <Route path={"/"} element={showGallery&& <TrendingGallery movies={movies2}/>} />
-                    <Route path={"/movies"} element={showGallery && <MovieGallery movies={movies}/>}/>
+                    <Route path={"/"} element={showGallery&& <TrendingGallery movies={trendingMedia} page={page} setPage={setPage} />} />
+                    <Route path={"/movies"} element={showGallery && <MovieGallery movies={movies} page={page} setPage={setPage}/>}/>
                 </Routes>
             <SimpleBottomNavigation/>
-    </div>
+            </main>
+        </div>
       </BrowserRouter>
   );
 }
