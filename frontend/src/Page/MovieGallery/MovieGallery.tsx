@@ -9,8 +9,6 @@ type MovieGalleryProps = {
     page: number,
     setPage: Dispatch<SetStateAction<number>>
 }
-
-
 function MovieGallery(props: MovieGalleryProps) {
     return (
         <>
@@ -23,5 +21,4 @@ function MovieGallery(props: MovieGalleryProps) {
         </>
     )
 }
-
 export default MovieGallery

@@ -4,7 +4,6 @@ import { Movie } from "../../models/Movie";
 import TrendingCard from "../../components/TrendingCard/TrendingCard";
 import CustomPagination from "../../components/Pagination/CustomPagination";
 
-
 type TrendingGalleryProps = {
     movies: Movie[],
     page: number,
@@ -12,7 +11,6 @@ type TrendingGalleryProps = {
 
 
 }
-
 function TrendingGallery(props: TrendingGalleryProps) {
     return (
         <>

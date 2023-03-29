@@ -22,15 +22,14 @@ function App() {
       <BrowserRouter>
         <Header/>
         <div className="app">
-      <main className={"main"}>
-
-    </main>
+            <main className={"main"}>
                 <Routes>
                     <Route path={"/"} element={showGallery&& <TrendingGallery movies={trendingMedia} page={page} setPage={setPage} />} />
                     <Route path={"/movies"} element={showGallery && <MovieGallery movies={movies} page={page} setPage={setPage}/>}/>
                 </Routes>
             <SimpleBottomNavigation/>
-    </div>
+            </main>
+        </div>
       </BrowserRouter>
   );
 }

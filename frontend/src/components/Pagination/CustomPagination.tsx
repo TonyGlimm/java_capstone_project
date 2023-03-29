@@ -2,12 +2,10 @@ import * as React from 'react';
 import Pagination from '@mui/material/Pagination';
 import {createTheme, ThemeProvider} from "@mui/material";
 
-
 const darkTheme = createTheme({
     palette: {
         mode: 'dark',
-    },
-});
+    },  });
 
 type CustomPaginationProps = {
     setPage: React.Dispatch<React.SetStateAction<number>>,
@@ -19,7 +17,6 @@ function CustomPagination(props: CustomPaginationProps) {
         props.setPage(page);
         window.scroll(0, 0);
     }
-
         return (
             <div
                 style={{
@@ -37,7 +34,6 @@ function CustomPagination(props: CustomPaginationProps) {
             </ThemeProvider>
             </div>
         );
-
 }
 
 export default CustomPagination
