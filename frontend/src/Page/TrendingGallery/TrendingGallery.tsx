@@ -1,9 +1,8 @@
 import React, {Dispatch, SetStateAction} from "react";
-import './TrendingGallery.css';
 import { Movie } from "../../models/Movie";
 import TrendingCard from "../../components/TrendingCard/TrendingCard";
 import CustomPagination from "../../components/Pagination/CustomPagination";
-
+import '../MovieGallery/MovieGallery.css';
 type TrendingGalleryProps = {
     movies: Movie[],
     page: number,
