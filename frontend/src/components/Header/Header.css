@@ -7,16 +7,18 @@
     text-transform: uppercase;
     background-color: #4B0082;
     font-family: "Montserrat", sans-serif;
-    font-size: 7vw;
+    font-size: 5vh;
     padding-bottom: 1px;
     box-shadow: 0px 1px 5px black;
     color: white;
     z-index: 100;
+
 }
 
 @media (max-width: 1000px) {
     .header{
         padding-top: 15px;
         font-size: 6.4vw;
+        max-height: 100px;
     }
 }
