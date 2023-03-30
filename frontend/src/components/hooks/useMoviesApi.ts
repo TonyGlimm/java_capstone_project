@@ -1,15 +1,11 @@
-import axios from 'axios'
-import {useEffect, useState} from "react";
+import axios from 'axios';
+import {useCallback, useEffect, useState} from "react";
 import {Movie} from "../../models/Movie";
 
 function useMoviesApi(apiUrl: string, page: number) {
     const [movies, setMovies] = useState<Movie[]>([])
 
-    useEffect(() => {
-        fetchMovies()
-    } , [page])
-
-    function fetchMovies() {
+    const fetchMovies = useCallback(() => {
         axios
             .get(apiUrl+page)
             .then((response) => response.data)
@@ -19,7 +15,13 @@ function useMoviesApi(apiUrl: string, page: number) {
             .catch((error) => {
                 console.error(error)
             })
-    }
-    return { movies}
+    }, [apiUrl, page])
+
+    useEffect(() => {
+        fetchMovies()
+    } , [fetchMovies])
+
+    return { movies }
 }
+
 export default useMoviesApi
