@@ -19,4 +19,9 @@ public class MediaController {
     public List<Media> getTrending(@PathVariable("pageValue") int pageValue) {
         return mediaService.getTrending(pageValue);
     }
+
+    @GetMapping("/tv/popular/{pageValue}")
+    public List<Media> getPopularTv(@PathVariable("pageValue") int pageValue) {
+        return mediaService.getPopularTv(pageValue);
+    }
 }

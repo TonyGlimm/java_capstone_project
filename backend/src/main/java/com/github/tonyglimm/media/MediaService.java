@@ -12,6 +12,8 @@ public class MediaService {
 
     private final WebClient webClient;
     private static final String API_KEY = System.getenv("TMDB_API_KEY");
+    private static final String REQUEST_STRING = "&language=en-US&include_adult=false&page=";
+
     public MediaService(
 
             @Value("${tmdbApi.url}") String url
@@ -21,7 +23,7 @@ public class MediaService {
 
     public List<Media> getPopularMovies(int pageValue) {
         return Objects.requireNonNull(webClient.get()
-                .uri("/movie/popular?api_key=" + API_KEY + "&language=en-US&include_adult=false&page="+pageValue)
+                .uri("/movie/popular?api_key=" + API_KEY + REQUEST_STRING +pageValue)
                 .retrieve()
                 .bodyToMono(MediaResponse.class)
                 .block()).results();
@@ -29,7 +31,14 @@ public class MediaService {
 
     public List<Media> getTrending(int pageValue) {
         return Objects.requireNonNull(webClient.get()
-                .uri("/trending/all/day?api_key=" + API_KEY + "&language=en-US&include_adult=false&page="+pageValue)
+                .uri("/trending/all/day?api_key=" + API_KEY + REQUEST_STRING +pageValue)
+                .retrieve().bodyToMono(MediaResponse.class)
+                .block()).results();
+    }
+
+    public List<Media> getPopularTv(int pageValue) {
+        return Objects.requireNonNull(webClient.get()
+                .uri("/tv/popular?api_key=" + API_KEY + REQUEST_STRING +pageValue)
                 .retrieve().bodyToMono(MediaResponse.class)
                 .block()).results();
     }
