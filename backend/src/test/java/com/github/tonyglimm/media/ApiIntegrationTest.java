@@ -96,6 +96,41 @@ class ApiIntegrationTest {
 
         ;
     }
+    @Test
+    void apiIntegrationTestTv() throws Exception {
+
+        mockWebServer.enqueue(new MockResponse()
+                .setHeader("Content-Type", "application/json")
+                .setBody("""
+                        {
+                            "results": [{
+                            "id":1,
+                            "originalTitle":"Tony Glimm",
+                            "genreIds":[1,2,3],
+                            "posterPath":"Poster",
+                            "releaseDate":"yesterday",
+                            "voteAverage":2.0,
+                            "voteCount":222222222,
+                            "overview":"this movie has a nice description"}]
+                        }
+                        """));
+
+        mockMvc.perform(get("/api/tv/popular/1"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id").value(1))
+                .andExpect(jsonPath("$[0].originalTitle").value("Tony Glimm"))
+                .andExpect(jsonPath("$[0].posterPath").value("Poster"))
+                .andExpect(jsonPath("$[0].genreIds",containsInAnyOrder(1,2,3)))
+                .andExpect(jsonPath("$[0].releaseDate").value("yesterday"))
+                .andExpect(jsonPath("$[0].voteAverage").value(2.0))
+                .andExpect(jsonPath("$[0].voteCount").value(222222222))
+                .andExpect(jsonPath("$[0].overview").value("this movie has a nice description"))
+
+        ;
+    }
+
+
+
     @AfterAll
     static void afterAll() throws IOException {
         mockWebServer.shutdown();
