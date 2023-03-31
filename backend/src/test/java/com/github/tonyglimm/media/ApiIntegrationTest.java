@@ -22,6 +22,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 class ApiIntegrationTest {
+    final String JSON_RESPONSE = """
+        {
+            "results": [{
+            "id":1,
+            "originalTitle":"Tony Glimm",
+            "genreIds":[1,2,3],
+            "posterPath":"Poster",
+            "releaseDate":"yesterday",
+            "voteAverage":2.0,
+            "voteCount":222222222,
+            "overview":"this movie has a nice description"}]
+        }
+        """;
 
     @Autowired
     MockMvc mockMvc;
@@ -30,6 +43,9 @@ class ApiIntegrationTest {
     static void beforeAll() throws Exception {
         mockWebServer = new MockWebServer();
         mockWebServer.start();
+
+
+
     }
     @DynamicPropertySource
     static void backendProperties(DynamicPropertyRegistry registry) {
@@ -38,21 +54,11 @@ class ApiIntegrationTest {
     @Test
     void apiIntegrationTestMovies() throws Exception {
 
-        mockWebServer.enqueue(new MockResponse()
+        MockResponse mockResponse = new MockResponse()
                 .setHeader("Content-Type", "application/json")
-                .setBody("""
-                        {
-                            "results": [{
-                            "id":1,
-                            "originalTitle":"Tony Glimm",
-                            "genreIds":[1,2,3],
-                            "posterPath":"Poster",
-                            "releaseDate":"yesterday",
-                            "voteAverage":2.0,
-                            "voteCount":222222222,
-                            "overview":"this movie has a nice description"}]
-                        }
-                        """));
+                .setBody(JSON_RESPONSE);
+        mockWebServer.enqueue(mockResponse);
+
         mockMvc.perform(get("/api/movies/popular/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id").value(1))
@@ -67,21 +73,10 @@ class ApiIntegrationTest {
     }    @Test
     void apiIntegrationTestTrending() throws Exception {
 
-        mockWebServer.enqueue(new MockResponse()
+        MockResponse mockResponse = new MockResponse()
                 .setHeader("Content-Type", "application/json")
-                .setBody("""
-                        {
-                            "results": [{
-                            "id":1,
-                            "originalTitle":"Tony Glimm",
-                            "genreIds":[1,2,3],
-                            "posterPath":"Poster",
-                            "releaseDate":"yesterday",
-                            "voteAverage":2.0,
-                            "voteCount":222222222,
-                            "overview":"this movie has a nice description"}]
-                        }
-                        """));
+                .setBody(JSON_RESPONSE);
+        mockWebServer.enqueue(mockResponse);
 
         mockMvc.perform(get("/api/trending/1"))
                 .andExpect(status().isOk())
@@ -99,21 +94,10 @@ class ApiIntegrationTest {
     @Test
     void apiIntegrationTestTv() throws Exception {
 
-        mockWebServer.enqueue(new MockResponse()
+        MockResponse mockResponse = new MockResponse()
                 .setHeader("Content-Type", "application/json")
-                .setBody("""
-                        {
-                            "results": [{
-                            "id":1,
-                            "originalTitle":"Tony Glimm",
-                            "genreIds":[1,2,3],
-                            "posterPath":"Poster",
-                            "releaseDate":"yesterday",
-                            "voteAverage":2.0,
-                            "voteCount":222222222,
-                            "overview":"this movie has a nice description"}]
-                        }
-                        """));
+                .setBody(JSON_RESPONSE);
+        mockWebServer.enqueue(mockResponse);
 
         mockMvc.perform(get("/api/tv/popular/1"))
                 .andExpect(status().isOk())
