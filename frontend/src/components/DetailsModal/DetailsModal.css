@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 
-.DetailsModal__landscape {
-    object-fit: contain;
-    border-radius: 10px;
-}
 
 .DetailsModal__portrait {
     display: none;
@@ -11,9 +7,9 @@
     border-radius: 10px;
 }
 
-.tagline {
-    padding-bottom: 10px;
-    align-self: center;
+.DetailsModal__landscape {
+    object-fit: contain;
+    border-radius: 10px;
 }
 
 .DetailsModal {
@@ -24,6 +20,7 @@
     width: 100%;
     overflow-y: scroll;
     scrollbar-width: none;
+
 }
 
 .DetailsModal::-webkit-scrollbar {
@@ -70,7 +67,7 @@
     }
     .DetailsModal__portrait {
         display: flex;
-        width: 38%;
+        width: 50%;
     }
     .DetailsModal {
         flex-direction: row;
@@ -83,8 +80,13 @@
         height: 100%;
     }
     .DetailsModal__title {
-        font-size: 3.5vw;
+        height: 12%;
+        font-size: 5vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
+
     .DetailsModal__description {
         font-size: 22px;
     }

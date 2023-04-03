@@ -16,13 +16,13 @@ function MovieCard(props: MovieCardProps) {
     if (props.movie.posterPath == null) {
         poster_path = "https://i.imgur.com/wjVuAGb.png"
     }
-        // @ts-ignore
+
     return (
-            <DetailsModal movie={props.movie}>
+            <DetailsModal  movie={props.movie}>
                 <Badge badgeContent={props.movie.voteAverage} color={props.movie.voteAverage >7? "primary":"secondary"}/>
                 <img className="poster" title={props.movie.originalTitle} src={poster_path}
                      alt={props.movie.originalTitle}/>
-                <h2 className="title">{props.movie.originalTitle}</h2>
+                <b className="title">{props.movie.originalTitle}</b>
                 <span className='subTitle'>{props.movie.releaseDate}</span>
             </DetailsModal>
 

@@ -2,43 +2,60 @@ import * as React from 'react';
 import Backdrop from '@mui/material/Backdrop';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
-import Button from '@mui/material/Button';
 import "./DetailsModal.css";
 
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import {Movie} from "../../models/Movie";
 import {PropsWithChildren} from "react";
 
+
 const style = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    width: "90%",
+    position: 'absolute' as 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 90,
+    p: 4,
     height: "80%",
-    backgroundColor: "#39445a",
-    border: "1px solid #282c34",
+    width: "80%",
+    backgroundColor: "#4B0082",
+
     borderRadius: 10,
     color: "white",
+    hideBackdrop: true,
+    padding: (3),
+
 
 };
+
 
 type DetailsModalProps = {
     movie: Movie;
     children?: React.ReactNode;
 } & PropsWithChildren<{}>;
-;
+
 
 export default function DetailsModal({children, ...props}: DetailsModalProps & { children?: React.ReactNode}) {
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-/*    let poster_path = `https://www.themoviedb.org/t/p/w220_and_h330_face${props.movie.posterPath}`;*/
+    let poster_path = `https://www.themoviedb.org/t/p/w220_and_h330_face${props.movie.posterPath}`;
 
     return (
-        <div>
-            <Button className="media" onClick={handleOpen}> {children} </Button>
+        <div className="style">
+            <div
+                className="media"
+                style={{ cursor: "pointer" }}
+                color="inherit"
+                onClick={handleOpen}
+            >
+                {children}
+            </div>
+
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -52,17 +69,32 @@ export default function DetailsModal({children, ...props}: DetailsModalProps & {
                     },
                 }}
             >
+
                 <Fade in={open}>
                     <Box sx={style}>
-                        <Typography id="transition-modal-title" variant="h6" component="h2">
-                            Text in a modal
-                        </Typography>
-                        <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                        </Typography>
+                        <div className="DetailsModal">
+
+                            <img className="DetailsModal__portrait" title={props.movie.originalTitle} src={poster_path}
+                                alt={props.movie.originalTitle}   />
+                            <img src={poster_path} alt={props.movie.originalTitle} className="DetailsModal__landscape"/>
+
+                    <div className="DetailsModal__about">
+                           <span className="DetailsModal__title">
+                                {props.movie.originalTitle} (
+                                   {(
+                                       props.movie.releaseDate
+                                   ).substring(0, 4)}
+                                   )
+                            </span>
+                              <span className="DetailsModal__description">
+                                {props.movie.overview}
+                              </span>
+                  </div>
+                    </div>
                     </Box>
                 </Fade>
             </Modal>
         </div>
     );
 }
+

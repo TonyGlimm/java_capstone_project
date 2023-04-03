@@ -3,6 +3,7 @@ import "../MovieCard/MovieCard.css";
 
 import {Movie} from "../../models/Movie";
 import {Badge} from "@mui/material";
+import DetailsModal from "../DetailsModal/DetailsModal";
 
 type TrendingCardProps = {
     movie: Movie
@@ -14,7 +15,7 @@ function MovieCard(props: TrendingCardProps) {
         poster_path = "https://i.imgur.com/wjVuAGb.png"
     }
     return (
-        <div className="media">
+        <DetailsModal movie={props.movie}>
             <Badge badgeContent={props.movie.voteAverage} color={props.movie.voteAverage >7? "primary":"secondary"}/>
             <img className="poster" title={props.movie.originalTitle} src={poster_path}
                  alt={props.movie.originalTitle}/>
@@ -22,7 +23,7 @@ function MovieCard(props: TrendingCardProps) {
             <span className="subTitle">{props.movie.mediaType === "movie" ? "Movie" : "TV Series"}
             <span className='subTitle'>{props.movie.releaseDate}</span>
             </span>
-        </div>
+        </DetailsModal>
     )
 }
 export default MovieCard;
