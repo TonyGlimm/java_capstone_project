@@ -8,6 +8,7 @@ import "./DetailsModal.css";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import {Movie} from "../../models/Movie";
+import {PropsWithChildren} from "react";
 
 const style = {
     display: "flex",
@@ -25,18 +26,19 @@ const style = {
 type DetailsModalProps = {
     movie: Movie;
     children?: React.ReactNode;
-};
+} & PropsWithChildren<{}>;
+;
 
-export default function DetailsModal(props: DetailsModalProps) {
+export default function DetailsModal({children, ...props}: DetailsModalProps & { children?: React.ReactNode}) {
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-    let poster_path = `https://www.themoviedb.org/t/p/w220_and_h330_face${props.movie.posterPath}`;
+/*    let poster_path = `https://www.themoviedb.org/t/p/w220_and_h330_face${props.movie.posterPath}`;*/
 
     return (
         <div>
-            <Button onClick={handleOpen}>Open modal</Button>
+            <Button className="media" onClick={handleOpen}> {children} </Button>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
