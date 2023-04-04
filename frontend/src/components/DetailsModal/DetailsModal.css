@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+
+.DetailsModal__portrait {
+    display: none;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.DetailsModal__landscape {
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.DetailsModal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+
+}
+
+.DetailsModal::-webkit-scrollbar {
+    display: none;
+}
+
+.DetailsModal__about {
+    padding: 10px;
+    width: 95%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", sans-serif;
+    justify-content: space-evenly;
+    font-weight: 300;
+}
+
+.DetailsModal__title {
+    height: 12%;
+    font-size: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.DetailsModal__description {
+    display: flex;
+    height: 40%;
+    overflow-y: scroll;
+    padding: 15px;
+    border-radius: 20px;
+    scrollbar-width: thin; /* Firefox */
+    box-shadow: inset 0 0 5px #000000;
+    text-align: justify;
+}
+
+.DetailsModal__description::-webkit-scrollbar {
+    display: none;
+}
+
+@media (min-width: 835px) {
+    .DetailsModal__landscape {
+        display: none;
+    }
+    .DetailsModal__portrait {
+        display: flex;
+        width: 50%;
+    }
+    .DetailsModal {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px 0;
+    }
+    .DetailsModal__about {
+        width: 58%;
+        padding: 0;
+        height: 100%;
+    }
+    .DetailsModal__title {
+        height: 12%;
+        font-size: 5vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .DetailsModal__description {
+        font-size: 22px;
+    }
+}
