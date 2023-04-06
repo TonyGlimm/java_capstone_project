@@ -59,7 +59,7 @@ class ApiIntegrationTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"/api/movies/popular/1", "/api/trending/1", "/api/tv/popular/1" })
+    @ValueSource(strings = {"/api/movies/popular/1", "/api/trending/1", "/api/tv/popular/1" , "/api/search/movie/1/1"})
     void apiIntegrationTest(String url) throws Exception {
         mockMvc.perform(get(url))
                 .andExpect(status().isOk())
@@ -72,6 +72,9 @@ class ApiIntegrationTest {
                 .andExpect(jsonPath("$[0].voteCount").value(222222222))
                 .andExpect(jsonPath("$[0].overview").value("this movie has a nice description"));
     }
+
+
+
 
     @AfterAll
     static void afterAll() throws IOException {
