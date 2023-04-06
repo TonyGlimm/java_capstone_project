@@ -44,7 +44,7 @@ export default function SimpleBottomNavigation() {
                     label="Popular TV-Shows" icon={<TvIcon />} />
                 <BottomNavigationAction
                     style={{color: "white"}}
-                    label="Search"
+                    label="SearchPage"
                     icon={<SearchIcon />} />
             </BottomNavigation>
         </Box>
