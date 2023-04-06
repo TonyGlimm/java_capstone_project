@@ -42,4 +42,12 @@ public class MediaService {
                 .retrieve().bodyToMono(MediaResponse.class)
                 .block()).results();
     }
+
+    public List<Media> search (String mediaType ,String searchTerm, int pageValue){
+        return Objects.requireNonNull(webClient.get()
+                .uri("/search/"+ mediaType + "?api_key=" + API_KEY + REQUEST_STRING
+                        + "&query=" + searchTerm +"&page=" + pageValue)
+                .retrieve().bodyToMono(MediaResponse.class)
+                .block()).results();
+    }
 }

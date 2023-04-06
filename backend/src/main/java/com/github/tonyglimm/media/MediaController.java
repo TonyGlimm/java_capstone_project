@@ -24,4 +24,11 @@ public class MediaController {
     public List<Media> getPopularTv(@PathVariable("pageValue") int pageValue) {
         return mediaService.getPopularTv(pageValue);
     }
+
+    @GetMapping("/search/{mediaType}/{searchTerm}/{pageValue}")
+    public List<Media> search( @PathVariable("mediaType") String mediaType ,
+                               @PathVariable("searchTerm") String searchTerm
+                               ,@PathVariable("pageValue") int pageValue) {
+        return mediaService.search(mediaType ,searchTerm, pageValue);
+    }
 }
