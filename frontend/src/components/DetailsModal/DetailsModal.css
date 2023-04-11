@@ -90,4 +90,21 @@
     .DetailsModal__description {
         font-size: 22px;
     }
+    .Mainbox_modal {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+/*
+
+        height: "80%",
+        width: "80%",
+
+
+        borderRadius: 10,
+        color: "white",
+        hideBackdrop: true,
+        padding: (1),*/
+    }
 }

@@ -10,23 +10,19 @@ import {PropsWithChildren} from "react";
 
 
 const style = {
+
     position: 'absolute' as 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 90,
-    p: 4,
-    height: "80%",
-    width: "80%",
     backgroundColor: "#4B0082",
-
-    borderRadius: 10,
-    color: "white",
-    hideBackdrop: true,
-    padding: (3),
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+    height:"80%",
+    width:"80%",
+    color:"white",
+    padding:(1)
 
 
 };
@@ -46,7 +42,7 @@ export default function DetailsModal({children, ...props}: DetailsModalProps & {
     let poster_path = `https://www.themoviedb.org/t/p/w220_and_h330_face${props.movie.posterPath}`;
 
     return (
-        <div className="style">
+        <>
             <div
                 className="media"
                 style={{ cursor: "pointer" }}
@@ -60,6 +56,7 @@ export default function DetailsModal({children, ...props}: DetailsModalProps & {
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
                 open={open}
+                className="Mainbox_modal"
                 onClose={handleClose}
                 closeAfterTransition
                 slots={{ backdrop: Backdrop }}
@@ -94,7 +91,7 @@ export default function DetailsModal({children, ...props}: DetailsModalProps & {
                     </Box>
                 </Fade>
             </Modal>
-        </div>
+        </>
     );
 }
 
